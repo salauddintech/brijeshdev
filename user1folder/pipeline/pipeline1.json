@@ -12,6 +12,8 @@
 				}
 			}
 		],
-		"annotations": []
+		"annotations": [
+			"extract"
+		]
 	}
 }
