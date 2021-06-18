@@ -48,7 +48,9 @@
 						}
 					}
 				],
-				"annotations": []
+				"annotations": [
+					"extract"
+				]
 			},
 			"dependsOn": []
 		},
