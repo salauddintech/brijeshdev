@@ -1,0 +1,25 @@
+{
+	"name": "trigger1",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pipeline1",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/dev/blobs/dev",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/27dcb1b7-302b-4fe6-8042-ff43aafe2dd7/resourceGroups/dev/providers/Microsoft.Storage/storageAccounts/blobstorageaccountsqlhas",
+			"events": [
+				"Microsoft.Storage.BlobCreated",
+				"Microsoft.Storage.BlobDeleted"
+			]
+		}
+	}
+}
