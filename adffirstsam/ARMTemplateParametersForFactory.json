@@ -14,6 +14,12 @@
 		"AzureDataLakeStoragelink_properties_typeProperties_url": {
 			"value": "https://csb10032000648d7cdd.dfs.core.windows.net"
 		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://StorageConnection.vault.azure.net/"
+		},
+		"AzureKeyVault2_properties_typeProperties_baseUrl": {
+			"value": "https://StorageConnection.vault.azure.net/"
+		},
 		"HttpServerlink_properties_typeProperties_url": {
 			"value": "https://cdn.rebrickable.com/media/downloads/"
 		},
