@@ -3,35 +3,19 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Power Query1",
-				"type": "ExecuteWranglingDataflow",
+				"name": "Filter1",
+				"type": "Filter",
 				"dependsOn": [],
-				"policy": {
-					"timeout": "1.00:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
+				"userProperties": []
+			},
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
 				"typeProperties": {
-					"dataflow": {
-						"referenceName": "powerquery1",
-						"type": "DataFlowReference"
-					},
-					"compute": {
-						"coreCount": 8,
-						"computeType": "General"
-					},
-					"sinks": {
-						"UserQuery": {
-							"name": "SinkDelimitedText3",
-							"dataset": {
-								"referenceName": "DelimitedText3",
-								"type": "DatasetReference"
-							},
-							"script": "sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> SinkDelimitedText3"
-						}
-					}
+					"isSequential": false,
+					"batchCount": 5
 				}
 			}
 		],
