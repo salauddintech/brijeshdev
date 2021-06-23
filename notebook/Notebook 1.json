@@ -1,0 +1,125 @@
+{
+	"name": "Notebook 1",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "apachesparkpool",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"synapse_widget": {
+				"version": "0.1",
+				"state": {
+					"a9e3cdff-c894-4075-95e3-f8f663c69cd7": {
+						"type": "Synapse.DataFrame",
+						"sync_state": {
+							"table": {
+								"rows": [
+									{
+										"_c0": "AddressID,AddressLine1,AddressLine2,City,StateProvince,CountryRegion,PostalCode,rowguid,ModifiedDate"
+									},
+									{
+										"_c0": "9,8713 Yosemite Ct.,NULL,Bothell,Washington,United States,98011,268AF621-76D7-4C78-9441-144FD139821A,2006-07-01 00:00:00.000"
+									},
+									{
+										"_c0": "11,1318 Lasalle Street,NULL,Bothell,Washington,United States,98011,981B3303-ACA2-49C7-9A96-FB670785B269,2007-04-01 00:00:00.000"
+									},
+									{
+										"_c0": "25,9178 Jumping St.,NULL,Dallas,Texas,United States,75201,C8DF3BD9-48F0-4654-A8DD-14A67A84D3C6,2006-09-01 00:00:00.000"
+									},
+									{
+										"_c0": "28,9228 Via Del Sol,NULL,Phoenix,Arizona,United States,85004,12AE5EE1-FC3E-468B-9B92-3B970B169774,2005-09-01 00:00:00.000"
+									},
+									{
+										"_c0": "32,26910 Indela Road,NULL,Montreal,Quebec,Canada,H1Y 2H5,84A95F62-3AE8-4E7E-BBD5-5A6F00CD982D,2006-08-01 00:00:00.000"
+									},
+									{
+										"_c0": "185,2681 Eagle Peak,NULL,Bellevue,Washington,United States,98004,7BCCF442-2268-46CC-8472-14C44C14E98C,2006-09-01 00:00:00.000"
+									}
+								],
+								"schema": {
+									"_c0": "string"
+								}
+							},
+							"isSummary": false,
+							"language": "scala"
+						},
+						"persist_state": {
+							"view": {
+								"type": "details",
+								"chartOptions": {
+									"chartType": "bar",
+									"aggregationType": "count",
+									"categoryFieldKeys": [
+										"_c0"
+									],
+									"seriesFieldKeys": [
+										"_c0"
+									],
+									"isStacked": false
+								}
+							}
+						}
+					}
+				}
+			},
+			"kernelspec": {
+				"name": "synapse_sparksql",
+				"display_name": "Synapse SQL"
+			},
+			"language_info": {
+				"name": "sql"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/27dcb1b7-302b-4fe6-8042-ff43aafe2dd7/resourceGroups/dev/providers/Microsoft.Synapse/workspaces/sqldw-sqlhack/bigDataPools/apachesparkpool",
+				"name": "apachesparkpool",
+				"type": "Spark",
+				"endpoint": "https://sqldw-sqlhack.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/apachesparkpool",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "2.4",
+				"nodeCount": 10,
+				"cores": 4,
+				"memory": 28,
+				"extraHeader": null
+			}
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "python"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%pyspark\r\n",
+					"df = spark.read.load('abfss://forsynapefile@forsynape.dfs.core.windows.net/Data_SalesAddress.csv', format='csv'\r\n",
+					"## If header exists uncomment line below\r\n",
+					"##, header=True\r\n",
+					")\r\n",
+					"display(df.limit(10))"
+				],
+				"attachments": null,
+				"execution_count": 1
+			}
+		]
+	}
+}
